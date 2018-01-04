@@ -4,3 +4,5 @@
 4.安装vue-cli(脚手架) cnpm install -g vue-cli（必须全局安装，vue才能直接在命令行中作为命令使用）
 5.此时vue已经成为命令了 vue
 6.初始化一个项目 vue init webpack projectName
+7.安装项目依赖 cnpm install
+8.运行项目 npm run dev
