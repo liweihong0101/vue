@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>组件，父子组件通信</title>
+</head>
+<body>
+<div id="app">
+  <son :message="msg"></son>
+  <my-son @connect="say"></my-son>
+</div>
+<script src="./js/vue.js"></script>
+<script>
+  Vue.component('son',{
+    props:['message'],
+    template:`<div>{{message}}</div>`
+  });
+
+  Vue.component('my-son',{
+    template:`<button @click='send'>点击</button>`,
+    data(){
+      return {
+        sondata: '大家好，我是子组件的数据'
+      }
+    },
+    methods:{
+      send(){
+        this.$emit('connect',this.sondata)
+      }
+    }
+  })
+
+  let vm = new Vue({
+    el: '#app',
+    data:{
+      msg:'我是父组件的数据！'
+    },
+    methods:{
+      say(data){
+        alert(data);
+      }
+    }
+
+  });
+
+
+</script>
+</body>
+</html>
