@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div>{{msg}}</div>
+    <input type="text" placeholder="请输入项目名" v-model="newItem" @keyup.enter="addNew">
+    <ul>
+      <li v-for="(item,index) in lists" @click="remove(index)">
+        {{item.item}}
+        <span style="display:inline-block;width:60px;height:40px;font-size:16px;color:red;margin-left:20px;cursor:pointer">X</span>
+      </li>
+    </ul>
+</div>
+<script src="./js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello liweihong',
+          lists:[
+            {'item':'apple'},
+            {'item':'banana'},
+            {'item':'happy'},
+          ],
+          newItem:'',
+        },
+        methods: {
+          addNew: function(){
+            if(!this.newItem){
+              alert('请输入内容，在进行添加！');
+              return
+            }
+            var  obj = {
+              'item':this.newItem
+            }
+            this.lists.push(obj);
+            this.newItem = '';
+          },
+          remove: function(index){
+            this.lists.splice(index,1);
+          }
+        }
+    })
+</script>
+</body>
+</html>
