@@ -3,8 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>组件，父子组件通信</title>
+  <style media="screen">
+  .seviceRemark_w {
+  width: 200px;
+  border: 1px solid #cecece;
+  position: relative;
+  /* left: -36.7%; */
+  height: 60px;
+  /* resize: vertical; */
+  /* overflow: auto; */
+}
+  </style>
 </head>
 <body>
+<textarea class="seviceRemark_w" style="overflow-x:scroll;height: 120px;white-space: nowrap;word-wrap: normal" id="setUpScript"></textarea>
 <div id="app">
   <son :message="msg"></son>
   <my-son @connect="say"></my-son>

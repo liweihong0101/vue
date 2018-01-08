@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>组件，父子组件通信</title>
+  <meta charset="UTF-8">
+  <title>组件，父子组件通信</title>
 </head>
+
 <body>
-<div id="app">
-  <my-article
-    v-for="item in articles"
-    :detail="item">
-  </my-article>
-</div>
-<script src="./js/vue.js"></script>
-<script>
-  Vue.component('my-article', {
-    props:['detail'],
-    template:`<div style="width:220px;border:1px solid #cecece;padding:10px;margin:10px;">
+  <div id="app">
+    <my-article v-for="item in articles" :detail="item">
+    </my-article>
+  </div>
+  <img src="" alt="">
+  <script src="./js/vue.js"></script>
+  <script>
+    Vue.component('my-article', {
+      props: ['detail'],
+      template: `<div style="width:220px;border:1px solid #cecece;padding:10px;margin:10px;">
     <div>
     <h3>{{detail.title}}</h3>
     <div style="float:left;line-height:1.5;">
@@ -25,40 +26,40 @@
     </div>
     <img width="40" style="margin:5px 10px;" :src="detail.img_url" alt="">
     </div>`
-  })
+    })
 
 
-  let vm = new Vue({
+    let vm = new Vue({
       el: '#app',
-      data:{
-        articles:[
-          {
-            title:'vue.js框架是什么？',
-            date:'2017年03月05日',
-            is_orginal:true,
-            img_url:'./images/logo.png'
+      data: {
+        articles: [{
+            title: 'vue.js框架是什么？',
+            date: '2017年03月05日',
+            is_orginal: true,
+            img_url: './images/logo.png'
           },
           {
-            title:'vue.js框架是什么？',
-            date:'2017年03月05日',
-            is_orginal:true,
-            img_url:'./images/logo.png'
+            title: 'vue.js框架是什么？',
+            date: '2017年03月05日',
+            is_orginal: true,
+            img_url: './images/logo.png'
           },
           {
-            title:'vue.js框架是什么？',
-            date:'2017年03月05日',
-            is_orginal:false,
-            img_url:'./images/logo.png'
+            title: 'vue.js框架是什么？',
+            date: '2017年03月05日',
+            is_orginal: false,
+            img_url: './images/logo.png'
           },
           {
-            title:'vue.js框架是什么？',
-            date:'2017年03月05日',
-            is_orginal:true,
-            img_url:'./images/logo.png'
+            title: 'vue.js框架是什么？',
+            date: '2017年03月05日',
+            is_orginal: true,
+            img_url: './images/logo.png'
           },
         ]
       }
     })
-</script>
+  </script>
 </body>
+
 </html>
