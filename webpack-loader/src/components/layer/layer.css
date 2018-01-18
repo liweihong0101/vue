@@ -1,0 +1,10 @@
+.layer {
+  width: 600px;
+  height: 400px;
+  background-color: green;
+}
+.layer > div {
+  width: 400px;
+  height: 200px;
+  background-color: #fff;
+}
