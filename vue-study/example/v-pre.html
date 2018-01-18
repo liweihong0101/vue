@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-pre</title>
+  <script src="../assets/js/vue.js" charset="utf-8"></script>
+</head>
+<body>
+  <h1>v-pre 实例</h1>
+  <hr>
+  <div id="app">
+    <p v-pre>{{msg}}</p>
+    <p v-cloak>加载完成后才显示</p>
+    <div v-once>{{msg}}</div>
+    <input type="text" v-model="msg" name="" value="">
+    <p>{{msg}}</p>
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello word'
+      }
+    })
+  </script>
+</body>
+</html>

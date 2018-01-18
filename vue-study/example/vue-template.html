@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../assets/js/vue.js" charset="utf-8"></script>
+  <title>vue-template.html</title>
+</head>
+<body>
+  <h1>vue-template 模版</h1>
+  <hr>
+  <div id="app">
+    {{msg}}
+  </div>
+  <template id="tpl">
+    <h2 style="color:green;">我是template标签模版</h2>
+  </template>
+  <script type="x-template" id="scrtpl">
+    <h2 style="color:orange;">我是script标签模版</h2>
+  </script>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'helloWorld'
+      },
+      // template: `
+      //   <h2 style="color:red;">我是选项模版</h2>
+      // `,
+      // template: '#tpl',
+      template: '#scrtpl'
+    })
+  </script>
+</body>
+</html>

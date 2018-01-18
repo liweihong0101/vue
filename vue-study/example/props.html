@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <title>component-2 props</title>
+</head>
+
+<body>
+  <h1>component-2 props</h1>
+  <hr>
+  <div id="app">
+    <jsli :here="msg"></jsli>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'china'
+      },
+      components: {
+        'jsli': {
+          template: `<div style="color:red;">panda from {{here}}</div>`,
+          props: ['here']
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>实例方法</title>
+  <script src="../assets/js/vue.js" charset="utf-8"></script>
+  <script src="../assets/js/jquery-3.2.1.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <h1>实例方法</h1>
+  <hr>
+  <div id="app"></div>
+  <p><button onclick="destroy()">卸载</button></p>
+  <p><button onclick="reload()">刷新</button></p>
+  <p><button onclick="tick()">更新</button></p>
+  <script type="text/javascript">
+    var jspang = Vue.extend({
+      template: `<p>{{msg}}</p>`,
+      data: function(){
+        return {
+          msg: '我是技术胖！'
+        }
+      },
+      mounted: function(){
+        console.log('mounted 已被创建！')
+      },
+      destroyed() {
+        //do something after destroying vue instance
+        console.log('实例被卸载之后！')
+      },
+      updated(){
+          console.log('实例更新之后！')
+      }
+    });
+    var vm = new jspang().$mount('#app');
+    // 销毁
+    function destroy(){
+      vm.$destroy();
+    }
+// 刷新
+    function reload(){
+      vm.$forceUpdate()
+    }
+// 数据修改方法
+    function tick() {
+      vm.msg = 'update msg info';
+      vm.$nextTick(function(){
+        console.log('msg更新完后我被调用了')
+      })
+    }
+  </script>
+</body>
+
+</html>

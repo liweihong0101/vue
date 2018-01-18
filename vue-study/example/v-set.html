@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../assets/js/vue.js" charset="utf-8"></script>
+  <title>Vue-set</title>
+</head>
+
+<body>
+  <h1>Vue-set</h1>
+  <hr>
+  <div id="app">
+    {{count}}
+    <p><button onclick="add()">增加</button></p>
+    <ul>
+      <li v-for="elem in arr">{{elem}}</li>
+    </ul>
+  </div>
+
+  <script>
+    var outData = {
+      count: 1,
+      // goods: 'car'
+      arr: ['aaa', 'bbb', 'ccc']
+    }
+    var app = new Vue({
+      el: '#app',
+      data: outData
+    });
+    // 第一种
+    function add() {
+      Vue.set(app.arr, 1, 'dd')
+    }
+    // 第二种
+    // function add() {
+    //   app.count++;
+    // }
+    // 第三种
+    // function add() {
+    // outData.count++;
+    // outData.arr[1] = 'dd' 只改变数组下标时vue识别不了，监测不到
+    // }
+  </script>
+</body>
+
+</html>

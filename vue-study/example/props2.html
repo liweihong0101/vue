@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+  <title>component-2 props</title>
+</head>
+
+<body>
+  <h1>component-2 props</h1>
+  <hr>
+  <div id="app">
+    <jsli></jsli>
+  </div>
+
+  <script type="text/javascript">
+    var city = {
+      template: `<div style="color:green;">sichuan of china</div>`
+    };
+    var temp = {
+      template: `
+        <div>
+          <p style="color:red;">panda from china</p>
+          <city></city>
+        </div>
+        `,
+      components: {
+        'city': city
+      }
+    };
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'china'
+      },
+      components: {
+        'jsli': temp
+      }
+    })
+  </script>
+</body>
+
+</html>

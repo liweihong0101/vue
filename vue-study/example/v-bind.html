@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-bind 实例</title>
+  <style media="screen">
+    .div1 {
+      color: red;
+      background-color: #000;
+      font-size: 20px;
+    }
+    .div2 {
+      color: green;
+      font-size: 40px;
+    }
+  </style>
+  <script src="../assets/js/vue.js" charset="utf-8"></script>
+</head>
+<body>
+  <h1>v-bind 实例</h1>
+  <hr>
+  <div id="app">
+    绑定标签路径：
+    <br>
+    <img src="../assets/images//avatar.svg" alt="">
+    <img v-bind:src="src" alt="">
+    <img :src="src" alt="">
+    <a :href="webUrl">技术胖</a>
+    <div :class="className">
+      技术胖1
+    </div>
+    <div :class="{div1:isOk}">
+      技术胖2
+    </div>
+    <hr>
+    <div :class="[class1,class2]">
+      技术胖3数组
+    </div>
+    <hr>
+    <div :class="isOk?class1:class2">
+      技术胖4三元运算符
+    </div>
+    <div>
+      <input type="checkbox" id="isOk" v-model="isOk">
+      <label for="isOk">{{isOk}}</label>
+    </div>
+    <hr>
+    <p :style="{color:red,backgroundColor:bg}">绑定style</p>
+    <p :style="styleObj">对象绑定style</p>
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        src: '../assets/images//avatar.svg',
+        webUrl: 'http://jspang.com',
+        className: 'div1',
+        isOk: false,
+        class1: 'div1',
+        class2: 'div2',
+        red: 'red',
+        bg: 'green',
+        styleObj: {
+          fontSize: '60px',
+          color: 'red'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
